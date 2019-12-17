@@ -11,13 +11,13 @@ import UIKit
 class RequestEngine: NSObject {
     
     static let shared = RequestEngine()
-    
+    // downloadImage Function
     func downloadImage(with url: String, completion: @escaping(_ data: Data?, _ error: String?) -> Void) {
         dataTask(with: url, conertData: false) { (response, error) in
             completion(response as? Data, error)
         }
     }
-    
+    // getPhotos Function
     func getPhotos(with latitude: Double, longitude: Double, completion: @escaping(_ imageUrls: [String]?, _ error: String?) -> Void) {
         let rangeStr = buildBbox(lat: latitude, lon: longitude)
         
